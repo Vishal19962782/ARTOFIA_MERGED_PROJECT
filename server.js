@@ -64,25 +64,17 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("RecieveMessage", data);
   });
 });
-
+ 
 mongoose
-  .connect(DB)
+  .connect(process.env.DATABASE)
   .then((message) => {
     console.log("all good");
   })
-  .catch((err) => {});
+  .catch((err) => {
+    console.log(err); 
+  });
 
-server.listen(process.env.PORT, () => {});
+server.listen(process.env.PORT, () => {}); 
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-// app.get("/", (req, res) => {
-//   if (req.session.user) {
-//     res.redirect("route/homepage");
-//   } else {
-//     req.session.isLoggedIn = false;
-
-//     res.redirect("/route");
-//     // res.render("index",{err:"",succ:''});
-//   }
-// });
