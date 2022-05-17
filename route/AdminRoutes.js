@@ -7,7 +7,7 @@ const Admin = require("../models/adminmodel");
 const { verifyAdmin } = require("../route/jwt-middleware/verify");
 // app.use("/api/admin",adminRoutes)
 
-adminrouter.get("/getUserInfos", async (req, res) => {
+adminrouter.get("/getUserInfos",verifyAdmin, async (req, res) => {
   try {
     const user = await User.find().select("-password ");
     res.send(user);
