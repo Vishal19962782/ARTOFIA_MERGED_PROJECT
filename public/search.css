@@ -1,0 +1,42 @@
+
+table{
+    margin-top: 30px;
+    background-color:#f8e8ff;
+    border-radius: 20px;
+    padding:10px;
+    outline: none;
+    border-collapse: collapse;
+    
+}
+
+nav{
+    box-shadow:0px 0px 10px rgb(42, 42, 42);
+    
+}
+form{
+    color:white;
+}
+.head{
+    color:white;
+}
+.create{
+    text-decoration: none;
+    font-weight:bold;
+    margin-top: 20px;
+
+}
+.create{
+    margin-top: 20px;
+    
+}
+.table{
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.514);
+
+   
+}
+tr{
+    border:20px;
+}
+.buttons{
+    width:100%
+}
