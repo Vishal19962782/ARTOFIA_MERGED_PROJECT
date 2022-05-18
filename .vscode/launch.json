@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "MergedFRONT_BACKEND:Controllers/UserControllers.logout (nodejs14.x)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/",
+                "lambdaHandler": "Controllers/UserControllers.logout"
+            },
+            "lambda": {
+                "runtime": "nodejs14.x",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

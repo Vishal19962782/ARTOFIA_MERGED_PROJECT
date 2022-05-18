@@ -5,7 +5,7 @@ const User = require("../models/usermodel");
 const Post = require("../models/post");
 const Admin = require("../models/adminmodel");
 const { verifyAdmin } = require("../route/jwt-middleware/verify");
-// app.use("/api/admin",adminRoutes)
+
 
 adminrouter.get("/getUserInfos",verifyAdmin, async (req, res) => {
   try {
@@ -16,11 +16,10 @@ adminrouter.get("/getUserInfos",verifyAdmin, async (req, res) => {
   }
 });
 adminrouter.put("/blockUser", verifyAdmin, async (req, res) => {
-  console.log("ADMIN TRIED TO BLOVK");
   const user = await User.findById(req.body.id).select("isBlocked");
   if (user.isBlocked) {
     await User.updateOne({ _id: req.body.id }, { isBlocked: false });
-    res.send("false");
+    res.send("false");   
   } else {
     await User.updateOne({ _id: req.body.id }, { isBlocked: true });
     res.send("true");

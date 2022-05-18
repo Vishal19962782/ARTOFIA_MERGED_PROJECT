@@ -11,6 +11,7 @@ const router = require("../route/Posts");
 const message = require("../route/Sms Middleware/sms");
 const otp = require("otp-generator");
 const client = require("../Sms helpers/twilio"); //twilio client
+const config=require("../twilioConfig.json")
 exports.get = (req, res) => {
   res.send("working");
 };
@@ -187,11 +188,12 @@ exports.getOtp=async (req, res) => {
         expiresIn: "1h",
       }
     );
-
+      console.log("trying otp");
     client.verify
       .services(config.TWILIO_SERVICES_KEY)
       .verifications.create({ to: phoneNo, channel: "sms" })
       .then((verify) => {
+        console.log(verify);
         res.status(200).json({ token, message: `OTP sent to ${phoneNo}` });
       })
       .catch((err) => {
@@ -199,6 +201,7 @@ exports.getOtp=async (req, res) => {
         res.status(403).send("Error while sending otp");
       });
   } catch (err) {
+    console.log(err);
     res.status(403).send("Error while sending otp");
   }
 }

@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const PostControllers = require("../controllers/PostControllers");
 const { verifyArtist } = require("../route/jwt-middleware/verify");
 const { log } = require("console");
-const { login } = require("../Controllers/UserControllers");
+const { login } = require("../controllers/UserControllers");
 
 cloudinary.config({
     cloud_name: "artofia",
